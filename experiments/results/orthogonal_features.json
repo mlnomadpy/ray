@@ -1,0 +1,32 @@
+{
+  "config": {
+    "ds": [
+      5,
+      20
+    ],
+    "rho": 0.3,
+    "t": 1.0,
+    "reps": 4000,
+    "out": "/Users/tahabsn/conductor/workspaces/neoyat/monterrey/papers/01_theory/biased_random_features/experiments/results/orthogonal_features.json"
+  },
+  "results": {
+    "5": {
+      "Dp": 5,
+      "g_true": 0.2465969639416065,
+      "var_iid": 0.19037874631412333,
+      "var_orf": 0.13671248394142857,
+      "ratio_orf_over_iid": 0.7181079116670624,
+      "bias_iid": -0.00238948141058154,
+      "bias_orf": 0.003961533434315906
+    },
+    "20": {
+      "Dp": 20,
+      "g_true": 0.2465969639416065,
+      "var_iid": 0.04689165350505393,
+      "var_orf": 0.03584731954033914,
+      "ratio_orf_over_iid": 0.7644712195204538,
+      "bias_iid": 0.003641308238395785,
+      "bias_orf": -0.0062412324399896135
+    }
+  }
+}

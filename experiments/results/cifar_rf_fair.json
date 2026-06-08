@@ -1,0 +1,300 @@
+{
+  "config": {
+    "datasets": [
+      "cifar10",
+      "cifar100"
+    ],
+    "Ms": [
+      512,
+      1024,
+      2048,
+      4096
+    ],
+    "m_sketch": 128,
+    "out": "/Users/tahabsn/conductor/workspaces/neoyat/monterrey/papers/01_theory/biased_random_features/experiments/results/cifar_rf_fair.json"
+  },
+  "datasets": {
+    "cifar10": {
+      "d": 512,
+      "C": 10,
+      "eps": 1.1094353199005127,
+      "rows": [
+        {
+          "method": "linear",
+          "M": 512,
+          "acc": 0.9378,
+          "lam": 100.0
+        },
+        {
+          "method": "gauss",
+          "M": 512,
+          "dim": 512,
+          "D": null,
+          "acc": 0.9307,
+          "lam": 0.0001
+        },
+        {
+          "method": "imq",
+          "M": 512,
+          "dim": 512,
+          "D": 512,
+          "acc": 0.931,
+          "lam": 0.0001
+        },
+        {
+          "method": "poly",
+          "M": 512,
+          "dim": 521,
+          "D": null,
+          "acc": 0.9384,
+          "lam": 0.0001
+        },
+        {
+          "method": "tsray",
+          "M": 512,
+          "dim": 641,
+          "D": 1,
+          "acc": 0.869,
+          "lam": 10.0
+        },
+        {
+          "method": "gauss",
+          "M": 1024,
+          "dim": 1024,
+          "D": null,
+          "acc": 0.9401,
+          "lam": 0.0001
+        },
+        {
+          "method": "imq",
+          "M": 1024,
+          "dim": 1024,
+          "D": 1024,
+          "acc": 0.9386,
+          "lam": 0.0001
+        },
+        {
+          "method": "poly",
+          "M": 1024,
+          "dim": 1024,
+          "D": null,
+          "acc": 0.9412,
+          "lam": 100.0
+        },
+        {
+          "method": "tsray",
+          "M": 1024,
+          "dim": 641,
+          "D": 1,
+          "acc": 0.869,
+          "lam": 10.0
+        },
+        {
+          "method": "gauss",
+          "M": 2048,
+          "dim": 2048,
+          "D": null,
+          "acc": 0.942,
+          "lam": 0.0001
+        },
+        {
+          "method": "imq",
+          "M": 2048,
+          "dim": 2048,
+          "D": 2048,
+          "acc": 0.941,
+          "lam": 0.0001
+        },
+        {
+          "method": "poly",
+          "M": 2048,
+          "dim": 2048,
+          "D": null,
+          "acc": 0.9431,
+          "lam": 100.0
+        },
+        {
+          "method": "tsray",
+          "M": 2048,
+          "dim": 1923,
+          "D": 3,
+          "acc": 0.9247,
+          "lam": 0.0001
+        },
+        {
+          "method": "gauss",
+          "M": 4096,
+          "dim": 4096,
+          "D": null,
+          "acc": 0.945,
+          "lam": 0.0001
+        },
+        {
+          "method": "imq",
+          "M": 4096,
+          "dim": 4096,
+          "D": 4096,
+          "acc": 0.9453,
+          "lam": 0.0001
+        },
+        {
+          "method": "poly",
+          "M": 4096,
+          "dim": 4096,
+          "D": null,
+          "acc": 0.9452,
+          "lam": 0.0001
+        },
+        {
+          "method": "tsray",
+          "M": 4096,
+          "dim": 3846,
+          "D": 6,
+          "acc": 0.9332,
+          "lam": 10.0
+        }
+      ]
+    },
+    "cifar100": {
+      "d": 512,
+      "C": 100,
+      "eps": 1.086118221282959,
+      "rows": [
+        {
+          "method": "linear",
+          "M": 512,
+          "acc": 0.7331,
+          "lam": 100.0
+        },
+        {
+          "method": "gauss",
+          "M": 512,
+          "dim": 512,
+          "D": null,
+          "acc": 0.7148,
+          "lam": 0.0001
+        },
+        {
+          "method": "imq",
+          "M": 512,
+          "dim": 512,
+          "D": 512,
+          "acc": 0.7128,
+          "lam": 0.0001
+        },
+        {
+          "method": "poly",
+          "M": 512,
+          "dim": 521,
+          "D": null,
+          "acc": 0.7338,
+          "lam": 100.0
+        },
+        {
+          "method": "tsray",
+          "M": 512,
+          "dim": 641,
+          "D": 1,
+          "acc": 0.6641,
+          "lam": 1.0
+        },
+        {
+          "method": "gauss",
+          "M": 1024,
+          "dim": 1024,
+          "D": null,
+          "acc": 0.7418,
+          "lam": 0.0001
+        },
+        {
+          "method": "imq",
+          "M": 1024,
+          "dim": 1024,
+          "D": 1024,
+          "acc": 0.7385,
+          "lam": 0.0001
+        },
+        {
+          "method": "poly",
+          "M": 1024,
+          "dim": 1024,
+          "D": null,
+          "acc": 0.753,
+          "lam": 0.0001
+        },
+        {
+          "method": "tsray",
+          "M": 1024,
+          "dim": 641,
+          "D": 1,
+          "acc": 0.6641,
+          "lam": 1.0
+        },
+        {
+          "method": "gauss",
+          "M": 2048,
+          "dim": 2048,
+          "D": null,
+          "acc": 0.764,
+          "lam": 0.0001
+        },
+        {
+          "method": "imq",
+          "M": 2048,
+          "dim": 2048,
+          "D": 2048,
+          "acc": 0.7627,
+          "lam": 0.0001
+        },
+        {
+          "method": "poly",
+          "M": 2048,
+          "dim": 2048,
+          "D": null,
+          "acc": 0.7699,
+          "lam": 100.0
+        },
+        {
+          "method": "tsray",
+          "M": 2048,
+          "dim": 1923,
+          "D": 3,
+          "acc": 0.7207,
+          "lam": 1.0
+        },
+        {
+          "method": "gauss",
+          "M": 4096,
+          "dim": 4096,
+          "D": null,
+          "acc": 0.7798,
+          "lam": 0.0001
+        },
+        {
+          "method": "imq",
+          "M": 4096,
+          "dim": 4096,
+          "D": 4096,
+          "acc": 0.7802,
+          "lam": 10.0
+        },
+        {
+          "method": "poly",
+          "M": 4096,
+          "dim": 4096,
+          "D": null,
+          "acc": 0.7863,
+          "lam": 100.0
+        },
+        {
+          "method": "tsray",
+          "M": 4096,
+          "dim": 3846,
+          "D": 6,
+          "acc": 0.7251,
+          "lam": 0.0001
+        }
+      ]
+    }
+  }
+}

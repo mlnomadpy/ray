@@ -1,0 +1,291 @@
+{
+  "config": {
+    "datasets": [
+      "gisette",
+      "madelon"
+    ],
+    "n_train": 1000000000,
+    "n_test": 1000000000,
+    "Ms": [
+      512,
+      1024,
+      2048,
+      4096,
+      8192
+    ],
+    "m_sketch": 128,
+    "ray_cap": 20000,
+    "epochs": 2,
+    "bs": 8192,
+    "target_steps": 3000,
+    "lr": 0.02,
+    "lam": 1e-05,
+    "out": "results/scaling_suite_floor.json"
+  },
+  "datasets": {
+    "gisette": {
+      "d": 5000,
+      "d_b": 12507501,
+      "eps": 0.2128334939479828,
+      "n_train": 6000,
+      "n_test": 1000,
+      "pos_rate": 0.5,
+      "exact_ray": false,
+      "rows": [
+        {
+          "method": "linear",
+          "M_target": 5000,
+          "M_actual": 5000,
+          "D": null,
+          "auc": 0.996788,
+          "log_loss": 0.11692520259250033,
+          "train_wall_s": 2.8964757919311523,
+          "build_wall_s": 1.9188721179962158,
+          "peak_gb": 25.932742656
+        },
+        {
+          "method": "gauss",
+          "M_target": 512,
+          "M_actual": 512,
+          "D": null,
+          "auc": 0.41716,
+          "log_loss": 1.440125905574901,
+          "train_wall_s": 3.7456917762756348,
+          "build_wall_s": 3.1203665733337402,
+          "peak_gb": 25.932742656
+        },
+        {
+          "method": "tsray",
+          "M_target": 512,
+          "M_actual": 512,
+          "D": 4,
+          "auc": 0.524,
+          "log_loss": 7.588575395235954,
+          "train_wall_s": 7.537116050720215,
+          "build_wall_s": 6.317978858947754,
+          "peak_gb": 25.932742656
+        },
+        {
+          "method": "gauss",
+          "M_target": 1024,
+          "M_actual": 1024,
+          "D": null,
+          "auc": 0.60322,
+          "log_loss": 0.9245175252425125,
+          "train_wall_s": 4.886296033859253,
+          "build_wall_s": 3.968611240386963,
+          "peak_gb": 25.932742656
+        },
+        {
+          "method": "tsray",
+          "M_target": 1024,
+          "M_actual": 1024,
+          "D": 8,
+          "auc": 0.566,
+          "log_loss": 6.918995223821836,
+          "train_wall_s": 5.982154130935669,
+          "build_wall_s": 5.108290672302246,
+          "peak_gb": 25.932742656
+        },
+        {
+          "method": "gauss",
+          "M_target": 2048,
+          "M_actual": 2048,
+          "D": null,
+          "auc": 0.53738,
+          "log_loss": 0.9226694794676769,
+          "train_wall_s": 5.946228981018066,
+          "build_wall_s": 5.0689051151275635,
+          "peak_gb": 25.932742656
+        },
+        {
+          "method": "tsray",
+          "M_target": 2048,
+          "M_actual": 2048,
+          "D": 16,
+          "auc": 0.49000000000000005,
+          "log_loss": 8.130616486380715,
+          "train_wall_s": 6.188206195831299,
+          "build_wall_s": 5.232941389083862,
+          "peak_gb": 25.932742656
+        },
+        {
+          "method": "gauss",
+          "M_target": 4096,
+          "M_actual": 4096,
+          "D": null,
+          "auc": 0.5300560000000001,
+          "log_loss": 0.8467016378159328,
+          "train_wall_s": 8.236507177352905,
+          "build_wall_s": 7.240204095840454,
+          "peak_gb": 25.932742656
+        },
+        {
+          "method": "tsray",
+          "M_target": 4096,
+          "M_actual": 4096,
+          "D": 32,
+          "auc": 0.512,
+          "log_loss": 7.779884015639986,
+          "train_wall_s": 6.659417152404785,
+          "build_wall_s": 5.250155687332153,
+          "peak_gb": 25.932742656
+        },
+        {
+          "method": "gauss",
+          "M_target": 8192,
+          "M_actual": 8192,
+          "D": null,
+          "auc": 0.490784,
+          "log_loss": 0.8035122009673771,
+          "train_wall_s": 12.729201793670654,
+          "build_wall_s": 11.445616245269775,
+          "peak_gb": 25.932742656
+        },
+        {
+          "method": "tsray",
+          "M_target": 8192,
+          "M_actual": 8192,
+          "D": 64,
+          "auc": 0.496,
+          "log_loss": 8.034962176178697,
+          "train_wall_s": 7.105726003646851,
+          "build_wall_s": 5.773346900939941,
+          "peak_gb": 25.932742656
+        }
+      ]
+    },
+    "madelon": {
+      "d": 500,
+      "d_b": 125751,
+      "eps": 1.651149034500122,
+      "n_train": 2000,
+      "n_test": 600,
+      "pos_rate": 0.5,
+      "exact_ray": false,
+      "rows": [
+        {
+          "method": "linear",
+          "M_target": 500,
+          "M_actual": 500,
+          "D": null,
+          "auc": 0.5958,
+          "log_loss": 0.8280502129741331,
+          "train_wall_s": 0.6136810779571533,
+          "build_wall_s": 0.059316396713256836,
+          "peak_gb": 25.932742656
+        },
+        {
+          "method": "gauss",
+          "M_target": 512,
+          "M_actual": 512,
+          "D": null,
+          "auc": 0.5471888888888888,
+          "log_loss": 0.8653719432971552,
+          "train_wall_s": 1.5903570652008057,
+          "build_wall_s": 0.732081413269043,
+          "peak_gb": 25.932742656
+        },
+        {
+          "method": "tsray",
+          "M_target": 512,
+          "M_actual": 512,
+          "D": 4,
+          "auc": 0.5384444444444444,
+          "log_loss": 0.9473794817331721,
+          "train_wall_s": 1.2712130546569824,
+          "build_wall_s": 0.7030215263366699,
+          "peak_gb": 25.932742656
+        },
+        {
+          "method": "gauss",
+          "M_target": 1024,
+          "M_actual": 1024,
+          "D": null,
+          "auc": 0.5608555555555557,
+          "log_loss": 0.9528701685687253,
+          "train_wall_s": 1.0653581619262695,
+          "build_wall_s": 0.5139565467834473,
+          "peak_gb": 25.932742656
+        },
+        {
+          "method": "tsray",
+          "M_target": 1024,
+          "M_actual": 1024,
+          "D": 8,
+          "auc": 0.5298666666666667,
+          "log_loss": 0.9958958706924441,
+          "train_wall_s": 1.2546849250793457,
+          "build_wall_s": 0.6921787261962891,
+          "peak_gb": 25.932742656
+        },
+        {
+          "method": "gauss",
+          "M_target": 2048,
+          "M_actual": 2048,
+          "D": null,
+          "auc": 0.6108555555555555,
+          "log_loss": 0.9293439892183654,
+          "train_wall_s": 1.7751939296722412,
+          "build_wall_s": 0.9297518730163574,
+          "peak_gb": 25.932742656
+        },
+        {
+          "method": "tsray",
+          "M_target": 2048,
+          "M_actual": 2048,
+          "D": 16,
+          "auc": 0.5392666666666667,
+          "log_loss": 1.1161180162994204,
+          "train_wall_s": 1.2905521392822266,
+          "build_wall_s": 0.7095022201538086,
+          "peak_gb": 25.932742656
+        },
+        {
+          "method": "gauss",
+          "M_target": 4096,
+          "M_actual": 4096,
+          "D": null,
+          "auc": 0.6090111111111111,
+          "log_loss": 0.8796803330177089,
+          "train_wall_s": 1.3116989135742188,
+          "build_wall_s": 0.7305464744567871,
+          "peak_gb": 25.932742656
+        },
+        {
+          "method": "tsray",
+          "M_target": 4096,
+          "M_actual": 4096,
+          "D": 32,
+          "auc": 0.5412444444444444,
+          "log_loss": 1.1265169855500152,
+          "train_wall_s": 1.2730700969696045,
+          "build_wall_s": 0.6997377872467041,
+          "peak_gb": 25.932742656
+        },
+        {
+          "method": "gauss",
+          "M_target": 8192,
+          "M_actual": 8192,
+          "D": null,
+          "auc": 0.5937888888888889,
+          "log_loss": 0.8515993976648103,
+          "train_wall_s": 2.3357319831848145,
+          "build_wall_s": 1.3841972351074219,
+          "peak_gb": 25.932742656
+        },
+        {
+          "method": "tsray",
+          "M_target": 8192,
+          "M_actual": 8192,
+          "D": 64,
+          "auc": 0.5331777777777778,
+          "log_loss": 0.9809560142219528,
+          "train_wall_s": 1.463982105255127,
+          "build_wall_s": 0.8067936897277832,
+          "peak_gb": 25.932742656
+        }
+      ]
+    }
+  }
+}

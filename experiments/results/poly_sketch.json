@@ -1,0 +1,48 @@
+{
+  "config": {
+    "N": 400,
+    "d": 10,
+    "eps": 1.0,
+    "b": 1.0,
+    "Dpolys": [
+      8,
+      16,
+      32,
+      64,
+      128,
+      256
+    ],
+    "D": 500,
+    "Dp": 50,
+    "seeds": 4,
+    "out": "/Users/tahabsn/conductor/workspaces/neoyat/monterrey/papers/01_theory/biased_random_features/experiments/results/poly_sketch.json"
+  },
+  "exact_poly_dim": 121,
+  "sketch": {
+    "8": {
+      "poly_rel_fro": 0.9932781539607118,
+      "full_rel_fro": 0.8106488134546024
+    },
+    "16": {
+      "poly_rel_fro": 0.7606037692373107,
+      "full_rel_fro": 0.6251363132222856
+    },
+    "32": {
+      "poly_rel_fro": 0.47460837807252976,
+      "full_rel_fro": 0.37602260724398673
+    },
+    "64": {
+      "poly_rel_fro": 0.3173386464459235,
+      "full_rel_fro": 0.2537485617937796
+    },
+    "128": {
+      "poly_rel_fro": 0.21871067779695894,
+      "full_rel_fro": 0.17542199367389513
+    },
+    "256": {
+      "poly_rel_fro": 0.1781561480000838,
+      "full_rel_fro": 0.14848166596304613
+    }
+  },
+  "exact_poly_full_rel_fro": 0.046399297747981016
+}

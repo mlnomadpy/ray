@@ -1,0 +1,267 @@
+{
+  "config": {
+    "datasets": [
+      "cifar10",
+      "cifar100"
+    ],
+    "Ms": [
+      512,
+      1024,
+      2048,
+      4096
+    ],
+    "m_sketch": 128,
+    "lam": 0.01,
+    "out": "/Users/tahabsn/conductor/workspaces/neoyat/monterrey/papers/01_theory/biased_random_features/experiments/results/cifar_classify.json"
+  },
+  "datasets": {
+    "cifar10": {
+      "d": 512,
+      "C": 10,
+      "eps": 1.1141304969787598,
+      "rows": [
+        {
+          "method": "linear",
+          "M": 512,
+          "acc": 0.9384
+        },
+        {
+          "method": "gauss",
+          "M": 512,
+          "M_actual": 512,
+          "D": null,
+          "acc": 0.9312
+        },
+        {
+          "method": "imq",
+          "M": 512,
+          "M_actual": 512,
+          "D": 512,
+          "acc": 0.9314
+        },
+        {
+          "method": "poly",
+          "M": 512,
+          "M_actual": 1025,
+          "D": null,
+          "acc": 0.9416
+        },
+        {
+          "method": "tsray",
+          "M": 512,
+          "M_actual": 641,
+          "D": 1,
+          "acc": 0.876
+        },
+        {
+          "method": "gauss",
+          "M": 1024,
+          "M_actual": 1024,
+          "D": null,
+          "acc": 0.9397
+        },
+        {
+          "method": "imq",
+          "M": 1024,
+          "M_actual": 1024,
+          "D": 1024,
+          "acc": 0.9385
+        },
+        {
+          "method": "poly",
+          "M": 1024,
+          "M_actual": 1537,
+          "D": null,
+          "acc": 0.9427
+        },
+        {
+          "method": "tsray",
+          "M": 1024,
+          "M_actual": 641,
+          "D": 1,
+          "acc": 0.876
+        },
+        {
+          "method": "gauss",
+          "M": 2048,
+          "M_actual": 2048,
+          "D": null,
+          "acc": 0.9424
+        },
+        {
+          "method": "imq",
+          "M": 2048,
+          "M_actual": 2048,
+          "D": 2048,
+          "acc": 0.9407
+        },
+        {
+          "method": "poly",
+          "M": 2048,
+          "M_actual": 1537,
+          "D": null,
+          "acc": 0.9427
+        },
+        {
+          "method": "tsray",
+          "M": 2048,
+          "M_actual": 1923,
+          "D": 3,
+          "acc": 0.9269
+        },
+        {
+          "method": "gauss",
+          "M": 4096,
+          "M_actual": 4096,
+          "D": null,
+          "acc": 0.9452
+        },
+        {
+          "method": "imq",
+          "M": 4096,
+          "M_actual": 4096,
+          "D": 4096,
+          "acc": 0.9451
+        },
+        {
+          "method": "poly",
+          "M": 4096,
+          "M_actual": 1537,
+          "D": null,
+          "acc": 0.9427
+        },
+        {
+          "method": "tsray",
+          "M": 4096,
+          "M_actual": 3846,
+          "D": 6,
+          "acc": 0.9342
+        }
+      ]
+    },
+    "cifar100": {
+      "d": 512,
+      "C": 100,
+      "eps": 1.0772324800491333,
+      "rows": [
+        {
+          "method": "linear",
+          "M": 512,
+          "acc": 0.7359
+        },
+        {
+          "method": "gauss",
+          "M": 512,
+          "M_actual": 512,
+          "D": null,
+          "acc": 0.7151
+        },
+        {
+          "method": "imq",
+          "M": 512,
+          "M_actual": 512,
+          "D": 512,
+          "acc": 0.7115
+        },
+        {
+          "method": "poly",
+          "M": 512,
+          "M_actual": 1025,
+          "D": null,
+          "acc": 0.7527
+        },
+        {
+          "method": "tsray",
+          "M": 512,
+          "M_actual": 641,
+          "D": 1,
+          "acc": 0.6671
+        },
+        {
+          "method": "gauss",
+          "M": 1024,
+          "M_actual": 1024,
+          "D": null,
+          "acc": 0.7431
+        },
+        {
+          "method": "imq",
+          "M": 1024,
+          "M_actual": 1024,
+          "D": 1024,
+          "acc": 0.74
+        },
+        {
+          "method": "poly",
+          "M": 1024,
+          "M_actual": 1537,
+          "D": null,
+          "acc": 0.764
+        },
+        {
+          "method": "tsray",
+          "M": 1024,
+          "M_actual": 641,
+          "D": 1,
+          "acc": 0.6671
+        },
+        {
+          "method": "gauss",
+          "M": 2048,
+          "M_actual": 2048,
+          "D": null,
+          "acc": 0.7638
+        },
+        {
+          "method": "imq",
+          "M": 2048,
+          "M_actual": 2048,
+          "D": 2048,
+          "acc": 0.7625
+        },
+        {
+          "method": "poly",
+          "M": 2048,
+          "M_actual": 1537,
+          "D": null,
+          "acc": 0.764
+        },
+        {
+          "method": "tsray",
+          "M": 2048,
+          "M_actual": 1923,
+          "D": 3,
+          "acc": 0.7199
+        },
+        {
+          "method": "gauss",
+          "M": 4096,
+          "M_actual": 4096,
+          "D": null,
+          "acc": 0.7812
+        },
+        {
+          "method": "imq",
+          "M": 4096,
+          "M_actual": 4096,
+          "D": 4096,
+          "acc": 0.7784
+        },
+        {
+          "method": "poly",
+          "M": 4096,
+          "M_actual": 1537,
+          "D": null,
+          "acc": 0.764
+        },
+        {
+          "method": "tsray",
+          "M": 4096,
+          "M_actual": 3846,
+          "D": 6,
+          "acc": 0.728
+        }
+      ]
+    }
+  }
+}

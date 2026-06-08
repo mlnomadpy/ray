@@ -1,0 +1,51 @@
+{
+  "config": {
+    "n_train": 200000,
+    "n_test": 50000,
+    "M": 4096,
+    "m_sketch": 128,
+    "epochs": 3,
+    "bs": 8192,
+    "lr": 0.02,
+    "lam": 1e-05,
+    "methods": [
+      "gauss",
+      "ray",
+      "tsray"
+    ],
+    "out": "/Users/tahabsn/conductor/workspaces/neoyat/monterrey/papers/01_theory/biased_random_features/experiments/results/higgs_scaling.json"
+  },
+  "eps": 0.026259690523147583,
+  "rows": [
+    {
+      "method": "gauss",
+      "M_actual": 4096,
+      "D": null,
+      "auc": 0.723032607760454,
+      "log_loss": 0.6142597771502002,
+      "train_wall_s": 1.6117162704467773,
+      "build_wall_s": 0.38948631286621094,
+      "peak_gb": 0.85213184
+    },
+    {
+      "method": "ray",
+      "M_actual": 3915,
+      "D": 9,
+      "auc": 0.7057859378345278,
+      "log_loss": 0.6248796897445157,
+      "train_wall_s": 1.0199999809265137,
+      "build_wall_s": 0.4544222354888916,
+      "peak_gb": 0.85213184
+    },
+    {
+      "method": "tsray",
+      "M_actual": 4082,
+      "D": 26,
+      "auc": 0.71578154987801,
+      "log_loss": 0.6181400751814392,
+      "train_wall_s": 0.4728217124938965,
+      "build_wall_s": 0.2964937686920166,
+      "peak_gb": 0.857358336
+    }
+  ]
+}

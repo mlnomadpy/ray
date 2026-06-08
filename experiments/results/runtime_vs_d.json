@@ -1,0 +1,109 @@
+{
+  "config": {
+    "b": 1.0,
+    "D": 8,
+    "m": 128,
+    "N": 1000,
+    "ds": [
+      8,
+      16,
+      32,
+      64,
+      128,
+      256,
+      512,
+      1024
+    ],
+    "dim_cap": 2000000
+  },
+  "rows": [
+    {
+      "d": 8,
+      "d_b": 45,
+      "exact_dim": 360,
+      "sketch_dim": 1096,
+      "exact_mem_mb": 2.88,
+      "sketch_mem_mb": 8.768,
+      "sketch_build_s": 0.0025474169524386525,
+      "exact_build_s": 0.0008621669840067625,
+      "exact_feasible": true
+    },
+    {
+      "d": 16,
+      "d_b": 153,
+      "exact_dim": 1224,
+      "sketch_dim": 1160,
+      "exact_mem_mb": 9.792,
+      "sketch_mem_mb": 9.28,
+      "sketch_build_s": 0.0036570000229403377,
+      "exact_build_s": 0.002638750011101365,
+      "exact_feasible": true
+    },
+    {
+      "d": 32,
+      "d_b": 561,
+      "exact_dim": 4488,
+      "sketch_dim": 1288,
+      "exact_mem_mb": 35.904,
+      "sketch_mem_mb": 10.304,
+      "sketch_build_s": 0.003452459000982344,
+      "exact_build_s": 0.010868125013075769,
+      "exact_feasible": true
+    },
+    {
+      "d": 64,
+      "d_b": 2145,
+      "exact_dim": 17160,
+      "sketch_dim": 1544,
+      "exact_mem_mb": 137.28,
+      "sketch_mem_mb": 12.352,
+      "sketch_build_s": 0.005034917034208775,
+      "exact_build_s": 0.04338608402758837,
+      "exact_feasible": true
+    },
+    {
+      "d": 128,
+      "d_b": 8385,
+      "exact_dim": 67080,
+      "sketch_dim": 2056,
+      "exact_mem_mb": 536.64,
+      "sketch_mem_mb": 16.448,
+      "sketch_build_s": 0.0074534169398248196,
+      "exact_build_s": 0.14340329100377858,
+      "exact_feasible": true
+    },
+    {
+      "d": 256,
+      "d_b": 33153,
+      "exact_dim": 265224,
+      "sketch_dim": 3080,
+      "exact_mem_mb": 2121.792,
+      "sketch_mem_mb": 24.64,
+      "sketch_build_s": 0.011431709048338234,
+      "exact_build_s": 1.5846577080665156,
+      "exact_feasible": true
+    },
+    {
+      "d": 512,
+      "d_b": 131841,
+      "exact_dim": 1054728,
+      "sketch_dim": 5128,
+      "exact_mem_mb": 8437.824,
+      "sketch_mem_mb": 41.024,
+      "sketch_build_s": 0.016626958968117833,
+      "exact_build_s": 8.202058500028215,
+      "exact_feasible": true
+    },
+    {
+      "d": 1024,
+      "d_b": 525825,
+      "exact_dim": 4206600,
+      "sketch_dim": 9224,
+      "exact_mem_mb": 33652.8,
+      "sketch_mem_mb": 73.792,
+      "sketch_build_s": 0.02825629198923707,
+      "exact_build_s": null,
+      "exact_feasible": false
+    }
+  ]
+}
