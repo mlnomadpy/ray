@@ -1,4 +1,4 @@
-# Bernstein–Schur Kernels (RAY) — build & reproducibility
+# Bernstein–Schur Kernels (RAY) -- build & reproducibility
 
 ## Building the PDF
 
