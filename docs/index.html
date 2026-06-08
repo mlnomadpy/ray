@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAY — Random Approximation of the ⵟ-kernel</title>
+<meta name="description" content="Bernstein–Schur Kernels: random features by sketched modulation and radial randomization for the biased yat-kernel (w·x+b)²/(‖w−x‖²+ε).">
+<meta property="og:title" content="RAY — Random Approximation of the ⵟ-kernel">
+<meta property="og:description" content="Random features for a kernel that is neither shift-invariant nor dot-product, with operator-norm guarantees and a linear-time streaming attention primitive.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }, svg: { fontCache: 'global' } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+<style>
+:root{
+  --bg:#0d1117; --panel:#161b22; --panel2:#1c2330; --border:#283041;
+  --ink:#e6edf3; --muted:#9aa7b6; --accent:#2dd4a7; --accent2:#7c9cff; --link:#79c0ff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:'Inter',system-ui,-apple-system,sans-serif; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--link); text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:880px; margin:0 auto; padding:0 24px}
+
+/* hero */
+header{
+  padding:72px 0 40px; text-align:center;
+  background:radial-gradient(1200px 400px at 50% -120px, rgba(45,212,167,.10), transparent 70%);
+  border-bottom:1px solid var(--border);
+}
+.yat{font-family:'Noto Sans Tifinagh','Ebrima',sans-serif}
+.logo{
+  font-size:84px; font-weight:700; letter-spacing:-2px; line-height:1;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  margin:0 0 6px;
+}
+.logo .sym{font-family:'Ebrima','Noto Sans Tifinagh',sans-serif}
+h1.title{
+  font-family:'Newsreader',serif; font-weight:500; font-size:27px; line-height:1.3;
+  margin:14px auto 6px; max-width:640px; color:var(--ink);
+}
+.authors{color:var(--muted); font-size:16px; margin:10px 0 4px}
+.affil{color:var(--muted); font-size:14px; margin:0}
+.links{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:28px 0 4px}
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 18px; border-radius:10px; border:1px solid var(--border);
+  background:var(--panel); color:var(--ink); font-weight:500; font-size:15px;
+  transition:border-color .15s, transform .15s, background .15s;
+}
+.btn:hover{border-color:var(--accent); transform:translateY(-1px); text-decoration:none; background:var(--panel2)}
+.btn.primary{background:linear-gradient(135deg,rgba(45,212,167,.18),rgba(124,156,255,.18)); border-color:rgba(45,212,167,.4)}
+.btn svg{width:17px;height:17px;fill:currentColor}
+
+/* kernel equation */
+.kernel{
+  margin:40px auto 8px; padding:26px; max-width:560px;
+  background:var(--panel); border:1px solid var(--border); border-radius:14px;
+  text-align:center; font-size:20px;
+}
+.kernel .cap{color:var(--muted); font-size:13px; margin-top:12px; font-family:'Inter',sans-serif}
+
+/* sections */
+section{padding:44px 0; border-bottom:1px solid var(--border)}
+h2{
+  font-family:'Newsreader',serif; font-weight:500; font-size:24px; margin:0 0 18px;
+  display:flex; align-items:center; gap:11px;
+}
+h2 .tick{width:8px; height:24px; border-radius:3px; background:linear-gradient(var(--accent),var(--accent2))}
+p.lead{color:var(--ink); font-size:17px}
+.abstract{color:#cdd9e5; font-size:16.5px}
+.abstract b{color:var(--ink); font-weight:600}
+
+/* contributions */
+.contribs{list-style:none; padding:0; margin:0; display:grid; gap:14px}
+.contribs li{
+  background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:16px 18px;
+  display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:start;
+}
+.contribs .n{
+  font-family:'JetBrains Mono',monospace; font-weight:500; font-size:14px;
+  color:var(--accent); background:rgba(45,212,167,.10); border:1px solid rgba(45,212,167,.25);
+  width:30px; height:30px; border-radius:8px; display:grid; place-items:center;
+}
+.contribs h3{margin:0 0 3px; font-size:16px; font-weight:600; color:var(--ink)}
+.contribs p{margin:0; color:var(--muted); font-size:14.5px}
+
+/* figures */
+.figs{display:grid; grid-template-columns:1fr 1fr; gap:22px}
+@media(max-width:640px){.figs{grid-template-columns:1fr}}
+figure{margin:0; background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:14px}
+figure img{width:100%; border-radius:6px; background:#fff; display:block}
+figcaption{color:var(--muted); font-size:13px; margin-top:10px; line-height:1.5}
+figcaption b{color:var(--ink)}
+
+/* highlight strip */
+.strip{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:6px}
+@media(max-width:640px){.strip{grid-template-columns:1fr}}
+.stat{background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:18px}
+.stat .big{font-size:23px; font-weight:700; color:var(--accent)}
+.stat .lbl{color:var(--muted); font-size:13.5px; margin-top:4px}
+
+/* bibtex */
+pre{
+  background:var(--panel); border:1px solid var(--border); border-radius:12px;
+  padding:18px; overflow-x:auto; font-family:'JetBrains Mono',monospace;
+  font-size:13px; color:#cdd9e5; line-height:1.55;
+}
+footer{padding:40px 0 60px; text-align:center; color:var(--muted); font-size:14px}
+footer a{color:var(--muted); text-decoration:underline}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">R<span class="sym">A</span>Y</div>
+    <div class="authors" style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:1px;color:var(--accent)">RANDOM APPROXIMATION OF THE <span class="yat">ⵟ</span>-KERNEL</div>
+    <h1 class="title">Bernstein–Schur Kernels: Random Features by Sketched Modulation and Radial Randomization</h1>
+    <p class="authors">Taha Bouhsine</p>
+    <p class="affil">Azetta AI</p>
+    <div class="links">
+      <a class="btn primary" href="ray-paper.pdf">
+        <svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm8 1.5V8h4.5L14 3.5zM8 13h8v1.5H8V13zm0 3h8v1.5H8V16zm0-6h5v1.5H8V10z"/></svg>
+        Paper (PDF)
+      </a>
+      <a class="btn" href="https://github.com/mlnomadpy/ray">
+        <svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.6 18 4.9 18 4.9c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+        Code
+      </a>
+      <a class="btn" href="#bibtex">
+        <svg viewBox="0 0 24 24"><path d="M5 3h10a3 3 0 0 1 3 3v15l-5-3-5 3V6H5V3zm2 3v12l3-1.8 3 1.8V6H7z"/></svg>
+        BibTeX
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="kernel">
+    \[ k_{\text{ⵟ},b}(w,x)=\frac{(w^\top x + b)^2}{\lVert w-x\rVert^2 + \varepsilon},\qquad b\ge 0,\ \varepsilon>0 \]
+    <div class="cap">A squared inner product (alignment) over an inverse squared distance (proximity) — neither shift-invariant nor a dot-product kernel.</div>
+  </div>
+
+  <section id="abstract">
+    <h2><span class="tick"></span>Abstract</h2>
+    <p class="abstract">
+      <b>Bernstein–Schur kernels</b> are products of a finite-feature kernel and a completely monotone shift-invariant kernel:
+      nonstationary kernels that fall between the shift-invariant and dot-product templates random features usually exploit, so in general
+      neither Bochner sampling nor polynomial sketching applies to the full kernel directly. We give one random-feature construction for the
+      whole class that <b>randomizes both factors</b>: it sketches the finite modulation and randomizes the completely monotone radial factor by
+      sampling its one-dimensional Bernstein–Widder scale and applying Gaussian random Fourier features. The feature dimension becomes \(Dm\),
+      free of the \(O(d^2)\) size of the exact-modulation feature. Keeping the modulation exact is the analyzable limit (\(m\to\infty\)): there we
+      prove unbiasedness, an exact variance for the flat estimator, an intrinsic-dimension matrix-Bernstein operator-norm bound, and a deterministic
+      kernel-ridge stability result. By conditioning on the sketch, the doubly-randomized estimator (<b>RAY</b>) inherits the same operator-norm
+      guarantee plus a single additive sketch term. The motivating instance is the biased <span class="yat">ⵟ</span>-kernel above, whose family span
+      contains the inverse-multiquadric kernel; experiments validate the construction off-sphere, isolate the alignment×proximity coupling, and turn
+      RAY into a linear-time, streaming attention primitive that the exact kernel cannot scale to and a landmark method cannot stream.
+    </p>
+  </section>
+
+  <section id="highlights">
+    <h2><span class="tick"></span>Why it matters</h2>
+    <div class="strip">
+      <div class="stat"><div class="big">\(O(NM)\)</div><div class="lbl">linear-time attention vs the \(O(N^2)\) kernel-smoother wall — 137 GB exact at \(N{=}131{,}072\), 1.6 GB for RAY</div></div>
+      <div class="stat"><div class="big">\(O(d^{-2})\)→ none</div><div class="lbl">sketching removes the \(O(d^2)\) polynomial floor; the feature dimension drops to \(Dm\)</div></div>
+      <div class="stat"><div class="big">class-level</div><div class="lbl">one estimator, one analysis, for every finite-modulation × completely-monotone-radial kernel</div></div>
+    </div>
+  </section>
+
+  <section id="contributions">
+    <h2><span class="tick"></span>Contributions</h2>
+    <ul class="contribs">
+      <li><span class="n">i</span><div><h3>A construction for a kernel class, not one kernel</h3><p>Identify <b>Bernstein–Schur kernels</b> and linearize the whole family with one unbiased estimator: keep the finite modulation exact, sample the radial Bernstein–Widder scale, apply random Fourier features.</p></div></li>
+      <li><span class="n">ii</span><div><h3>Sharp variance and optimal allocation</h3><p>An exact variance for the flat estimator, a proof that one frequency per scale is variance-optimal at fixed budget, and a norm- and bias-free normalized variant.</p></div></li>
+      <li><span class="n">iii</span><div><h3>Operator-norm concentration &amp; KRR stability</h3><p>An intrinsic-dimension matrix-Bernstein bound governed by the top eigenvalues — not the crude \(N\max_{ij}\) route — and a deterministic relative-spectral kernel-ridge perturbation bound.</p></div></li>
+      <li><span class="n">iv</span><div><h3>RAY: the deployed, doubly-randomized estimator</h3><p>Sketching the modulation drops the feature dimension to \(Dm\). Conditioning on the sketch carries the operator-norm guarantee over, plus a single tunable additive term.</p></div></li>
+      <li><span class="n">v</span><div><h3>Empirical validation</h3><p>The \(O(1/\sqrt D)\) rate, the \((R^2+b)^4\) bias law, the off-sphere niche where Nyström degrades with \(d\), a controlled coupled-target preference test, and a linear-time streaming attention primitive.</p></div></li>
+    </ul>
+  </section>
+
+  <section id="figures">
+    <h2><span class="tick"></span>Results</h2>
+    <div class="figs">
+      <figure>
+        <img src="figs/fig_offsphere.png" alt="Off-sphere Gram error and Nyström degradation">
+        <figcaption><b>Off-sphere, the key regime.</b> RAY follows the \(O(1/\sqrt D)\) Monte-Carlo rate at every dimension and stays bounded as \(d\) grows, while uniform and k-means Nyström degrade at fixed landmark count.</figcaption>
+      </figure>
+      <figure>
+        <img src="figs/fig_attention.png" alt="Linear-time streaming attention">
+        <figcaption><b>Linear-time streaming attention.</b> Faithful to exact <span class="yat">ⵟ</span>-attention, stable across context length, clearing the \(O(N^2)\) memory wall with a constant-size decode state and an exact causal recurrence.</figcaption>
+      </figure>
+      <figure>
+        <img src="figs/fig_ts_opnorm.png" alt="Operator-norm error of doubly-randomized RAY">
+        <figcaption><b>Doubly-randomized operator norm.</b> The deployed sketched estimator matches the radial \(O(D^{-1/2})\) term plus the conditioned sketch term, as predicted.</figcaption>
+      </figure>
+      <figure>
+        <img src="figs/fig_krr.png" alt="Kernel ridge regression downstream">
+        <figcaption><b>Downstream KRR.</b> RAY tracks the exact <span class="yat">ⵟ</span>-kernel as the draw budget grows, with an IMQ-RFF ablation isolating the exact alignment numerator.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="bibtex">
+    <h2><span class="tick"></span>Citation</h2>
+<pre>@article{bouhsine2026bernsteinschur,
+  title   = {Bernstein--Schur Kernels: Random Features by
+             Sketched Modulation and Radial Randomization},
+  author  = {Bouhsine, Taha},
+  year    = {2026},
+  note    = {Code: https://github.com/mlnomadpy/ray}
+}</pre>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <span class="yat">ⵟ</span> &nbsp;RAY — Random Approximation of the <span class="yat">ⵟ</span>-kernel &nbsp;·&nbsp;
+    <a href="https://github.com/mlnomadpy/ray">github.com/mlnomadpy/ray</a> &nbsp;·&nbsp;
+    <a href="ray-paper.pdf">paper</a>
+  </div>
+</footer>
+
+</body>
+</html>
