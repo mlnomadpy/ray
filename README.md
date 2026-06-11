@@ -1,4 +1,12 @@
-# Bernstein–Schur Kernels (RAY) -- build & reproducibility
+# Bernstein–Schur Kernels (RAY) — build & reproducibility
+
+## Theory documentation
+
+`docs/` holds one markdown file per result (37 results, monograph template:
+What it says / Why it matters / Proof idea / Connections), indexed by
+[`docs/00-overview.md`](docs/00-overview.md). The full proof audit and the
+ranked gap inventory (proof hygiene, open theory, missing experiments) is
+[`docs/AUDIT.md`](docs/AUDIT.md).
 
 ## Building the PDF
 
@@ -53,6 +61,12 @@ Run with `~/.pixi/envs/jax/bin/python3` (numpy/sklearn) or `/opt/homebrew/bin/py
 | `cifar_embed.py`, `cifar_kernel_krr.py` | `tab:cifar` (CLIP embeddings, appendix) |
 | `eps_bias_sensitivity.py` | `tab:sensitivity` (appendix) |
 | `bernstein_schur_demo.py` | non-ⵟ Bernstein–Schur instance (appendix) |
+| `leverage_radial_sampling.py` | `thm:krr_leverage` (whitened-leverage tilt: D* tracks d_eff, not ‖P‖/λ) |
+| `positive_features.py` | `prop:pos_dichotomy` (FAVOR+ infinite-variance threshold 8x·w≥ε; off-sphere trig vs positive Gram) |
+| `complex_sketch.py` | `rmk:complex` (complex vs real degree-2 TensorSketch: η and sketch term ~1.6× lower, variance halved) |
+| `grammar_kernel.py` | kernel-grammar customer (LIN²×RQ on california; class estimator end-to-end, appendix) |
+| `radial_quadrature.py` | `prop:quadrature` empirical scoping (exact-g: machine precision by D=32; RFF-paired: inner noise dominates) |
+| `qm9_build_cache.py`, `qm9_atomization.py` | `tab:qm9` (real coupled-target test: QM9 atomization; CM eigenspectrum d=29 + full sorted CM d=435; ablations; full-N sketched primal) |
 
 Large datasets (HIGGS, CIFAR, CLIP weights) auto-download to `~/rf_data/` / `~/higgs_data/`
 on first run; see each script's header for the exact command and expected numbers.

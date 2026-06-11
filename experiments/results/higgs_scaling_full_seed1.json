@@ -1,0 +1,222 @@
+{
+  "config": {
+    "n_train": 10500000,
+    "n_test": 500000,
+    "M": 4096,
+    "Ms": [
+      512,
+      1024,
+      2048,
+      4096,
+      8192
+    ],
+    "m_sketch": 128,
+    "epochs": 2,
+    "bs": 8192,
+    "lr": 0.02,
+    "lam": 1e-05,
+    "methods": [
+      "linear",
+      "gauss",
+      "ray",
+      "tsray"
+    ],
+    "seed": 1,
+    "out": "results/higgs_scaling_full_seed1.json"
+  },
+  "eps": 0.12747815251350403,
+  "rows": [
+    {
+      "method": "linear",
+      "M_target": 28,
+      "M_actual": 28,
+      "D": null,
+      "auc": 0.6819056627095614,
+      "log_loss": 0.6383013277793482,
+      "train_wall_s": 7.564177989959717,
+      "build_wall_s": 4.125390529632568,
+      "mem_repr_mb": 1176.0,
+      "peak_gb": 7.788888064
+    },
+    {
+      "method": "gauss",
+      "M_target": 512,
+      "M_actual": 512,
+      "D": null,
+      "auc": 0.7230512759697789,
+      "log_loss": 0.612236113648915,
+      "train_wall_s": 7.4215381145477295,
+      "build_wall_s": 5.545982122421265,
+      "mem_repr_mb": 21504.0,
+      "peak_gb": 7.788888064
+    },
+    {
+      "method": "ray",
+      "M_target": 512,
+      "M_actual": 435,
+      "D": 1,
+      "auc": 0.695480547885162,
+      "log_loss": 0.6338612979535332,
+      "train_wall_s": 9.533982276916504,
+      "build_wall_s": 7.426003932952881,
+      "mem_repr_mb": 18270.0,
+      "peak_gb": 7.788888064
+    },
+    {
+      "method": "tsray",
+      "M_target": 512,
+      "M_actual": 471,
+      "D": 3,
+      "auc": 0.6861618304933559,
+      "log_loss": 0.6378995680516932,
+      "train_wall_s": 8.321506977081299,
+      "build_wall_s": 6.325721740722656,
+      "mem_repr_mb": 19782.0,
+      "peak_gb": 7.788888064
+    },
+    {
+      "method": "gauss",
+      "M_target": 1024,
+      "M_actual": 1024,
+      "D": null,
+      "auc": 0.7378904770034149,
+      "log_loss": 0.600881420833986,
+      "train_wall_s": 9.250991106033325,
+      "build_wall_s": 6.857863903045654,
+      "mem_repr_mb": 43008.0,
+      "peak_gb": 7.788888064
+    },
+    {
+      "method": "ray",
+      "M_target": 1024,
+      "M_actual": 870,
+      "D": 2,
+      "auc": 0.7196015403236193,
+      "log_loss": 0.6174534667654592,
+      "train_wall_s": 9.751197814941406,
+      "build_wall_s": 7.367664337158203,
+      "mem_repr_mb": 36540.0,
+      "peak_gb": 7.788888064
+    },
+    {
+      "method": "tsray",
+      "M_target": 1024,
+      "M_actual": 942,
+      "D": 6,
+      "auc": 0.7188582199630389,
+      "log_loss": 0.6165994755305462,
+      "train_wall_s": 10.12552285194397,
+      "build_wall_s": 7.373246908187866,
+      "mem_repr_mb": 39564.0,
+      "peak_gb": 7.788888064
+    },
+    {
+      "method": "gauss",
+      "M_target": 2048,
+      "M_actual": 2048,
+      "D": null,
+      "auc": 0.7479242780277129,
+      "log_loss": 0.5930404159652011,
+      "train_wall_s": 13.359506368637085,
+      "build_wall_s": 9.58097529411316,
+      "mem_repr_mb": 86016.0,
+      "peak_gb": 7.788888064
+    },
+    {
+      "method": "ray",
+      "M_target": 2048,
+      "M_actual": 1740,
+      "D": 4,
+      "auc": 0.7223053042092754,
+      "log_loss": 0.6145714699292986,
+      "train_wall_s": 11.774077892303467,
+      "build_wall_s": 8.8542001247406,
+      "mem_repr_mb": 73080.0,
+      "peak_gb": 7.788888064
+    },
+    {
+      "method": "tsray",
+      "M_target": 2048,
+      "M_actual": 2041,
+      "D": 13,
+      "auc": 0.7294228917051158,
+      "log_loss": 0.6080890385341592,
+      "train_wall_s": 11.490668058395386,
+      "build_wall_s": 8.2874596118927,
+      "mem_repr_mb": 85722.0,
+      "peak_gb": 7.788888064
+    },
+    {
+      "method": "gauss",
+      "M_target": 4096,
+      "M_actual": 4096,
+      "D": null,
+      "auc": 0.7560469756915442,
+      "log_loss": 0.5859950469618317,
+      "train_wall_s": 20.867518186569214,
+      "build_wall_s": 15.193772077560425,
+      "mem_repr_mb": 172032.0,
+      "peak_gb": 7.788888064
+    },
+    {
+      "method": "ray",
+      "M_target": 4096,
+      "M_actual": 3915,
+      "D": 9,
+      "auc": 0.7379566225639733,
+      "log_loss": 0.6028850241936946,
+      "train_wall_s": 16.98824715614319,
+      "build_wall_s": 12.019972801208496,
+      "mem_repr_mb": 164430.0,
+      "peak_gb": 7.788888064
+    },
+    {
+      "method": "tsray",
+      "M_target": 4096,
+      "M_actual": 4082,
+      "D": 26,
+      "auc": 0.7423773134820917,
+      "log_loss": 0.5982429057720337,
+      "train_wall_s": 16.366213083267212,
+      "build_wall_s": 11.105142593383789,
+      "mem_repr_mb": 171444.0,
+      "peak_gb": 7.788888064
+    },
+    {
+      "method": "gauss",
+      "M_target": 8192,
+      "M_actual": 8192,
+      "D": null,
+      "auc": 0.7596691749455778,
+      "log_loss": 0.5830144592754688,
+      "train_wall_s": 38.167240858078,
+      "build_wall_s": 28.916855335235596,
+      "mem_repr_mb": 344064.0,
+      "peak_gb": 7.788888064
+    },
+    {
+      "method": "ray",
+      "M_target": 8192,
+      "M_actual": 7830,
+      "D": 18,
+      "auc": 0.7408639066808808,
+      "log_loss": 0.5996242924222595,
+      "train_wall_s": 30.27554202079773,
+      "build_wall_s": 20.31464457511902,
+      "mem_repr_mb": 328860.0,
+      "peak_gb": 7.788888064
+    },
+    {
+      "method": "tsray",
+      "M_target": 8192,
+      "M_actual": 8164,
+      "D": 52,
+      "auc": 0.7529022006997772,
+      "log_loss": 0.5891625820151193,
+      "train_wall_s": 30.439307689666748,
+      "build_wall_s": 20.20652461051941,
+      "mem_repr_mb": 342888.0,
+      "peak_gb": 7.788888064
+    }
+  ]
+}

@@ -174,6 +174,7 @@ def main():
     ap.add_argument("--lr", type=float, default=2e-2)
     ap.add_argument("--lam", type=float, default=1e-5)
     ap.add_argument("--methods", nargs="+", default=["linear", "gauss", "ray", "tsray"])
+    ap.add_argument("--seed", type=int, default=0)   # feature-draw seed (multi-seed protocol)
     ap.add_argument("--out", default=os.path.join(HERE, "results", "higgs_scaling.json"))
     args = ap.parse_args()
     log(f"config: {vars(args)} | device {mx.default_device()}")
@@ -192,7 +193,7 @@ def main():
         for method in [m for m in args.methods if m != "linear"]:
             jobs.append((method, M))
     for method, Mtarget in jobs:
-        p = make_params(method, d, Mtarget, eps, gamma, b, args.m_sketch, 0)
+        p = make_params(method, d, Mtarget, eps, gamma, b, args.m_sketch, args.seed)
         t0 = time.time()
         auc, ll, tb = train(Xtr, ytr, Xte, yte, p, args.epochs, args.bs, args.lr, args.lam)
         wall = time.time() - t0
